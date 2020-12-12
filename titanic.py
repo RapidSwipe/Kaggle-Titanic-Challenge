@@ -13,6 +13,7 @@ X_train=X_train[:,[0,1,2,3,4,5,6,8]]
 
 #Get test data
 test_set=pd.read_csv('test.csv')
+test_set_Id=test_set['PassengerId']
 gender_submision=pd.read_csv('gender_submission.csv')
 
 
@@ -104,7 +105,11 @@ best_parameters=grid_search.best_params_
 
 
 
-#
+output={'PasangerId':test_set_Id,'Survived':Test_set_predictions}
+final_output=pd.DataFrame(output,columns=['PasangerId','Survived'])
+final_output.to_csv('sample_submission.csv')
+
+
 
 
 
